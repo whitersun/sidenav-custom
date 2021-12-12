@@ -248,11 +248,11 @@
         function nestedListChildEl(item, iconDown) {
             if (!item) return
 
-            var arrayNestedList = [...item.children];
+            var arrayNestedList = item.children;
 
             // console.log(arrayNestedList);
-            arrayNestedList.map(el => {
-                var isHaveChild = [...el.children].find(elChild => elChild.classList.contains(
+            Array.from(arrayNestedList).map(el => {
+                var isHaveChild = Array.from(el.children).find(elChild => elChild.classList.contains(
                     'custom-collapse-2'))
 
                 if (isHaveChild) {

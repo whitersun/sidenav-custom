@@ -128,9 +128,8 @@ class ShadowElement extends HTMLElement {
         var sidenav = document.querySelector('.side-nav');
         var sidenavIsActive = sidenav.classList.contains('active');
         if (sidenavIsActive) {
-            console.log()
             sidenav.classList.remove('active');
-            document.querySelector('shadow-card').remove()
+            this.shadowRoot.host.remove()
         }
         else return
     }
