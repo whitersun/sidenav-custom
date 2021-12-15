@@ -47,9 +47,6 @@ template.innerHTML = `
     </div>
 `;
 
-const shadowTemplate = document.createElement('template');
-shadowTemplate.innerHTML = `<div class="hidden-overlay"></div>`
-
 class UserCard extends HTMLElement {
     constructor() {
         super();
@@ -97,9 +94,17 @@ class ShadowElement extends HTMLElement {
         super();
 
         this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(shadowTemplate.content.cloneNode(true));
+
+        const createTemplateElement = document.createElement('template');
+        const createDivElement = document.createElement('div');
+
+        createDivElement.classList.add('hidden-overlay');
+        createDivElement.setAttribute('part', 'overlay');
+
+        const combineShadowNightElement = createTemplateElement.appendChild(createDivElement);
+
+        this.shadowRoot.appendChild(combineShadowNightElement);
         this.shadowRoot.querySelector('.hidden-overlay').style.height = `${document.body.offsetHeight + 100}px`
-        this.shadowRoot.querySelector('.hidden-overlay').setAttribute('part', 'overlay');
     }
 
     toggleShadow() {
@@ -148,7 +153,19 @@ function nestedListChildEl(item, iconDown) {
             var createIconSpan = document.createElement('span');
             createIconSpan.classList.add('custom-pr');
 
-            createIconSpan.innerHTML = `${iconDown}`
+            // console.log(createIconSpan);
+
+            var iconText = iconDown
+            // console.log(iconText);
+
+            function minify_html(input, output) {
+                output = input.replace(/\s*?[^\s?\[][\s\S]*?--\>/g,'').replace(/\>\s*\</g,'><');
+                return output;
+            }
+
+            var iconText = '';
+            const minifyIcon = minify_html(iconDown, iconText);
+            createIconSpan.innerHTML = `${minifyIcon}`
 
             var collapseBtn = item.children[0];
             collapseBtn.appendChild(createIconSpan);
@@ -171,6 +188,7 @@ export function sidebar001({
         */
     var accordion = accordion ? accordion : false;
 
+
     sidebarArray.map(item => {
         var createIconSpan = document.createElement('span');
         createIconSpan.classList.add('custom-pr');
@@ -187,6 +205,11 @@ export function sidebar001({
             event.preventDefault();
 
             var getNestedList = Array.from(event.target.parentElement.children);
+
+            var _a = []
+            var _b = event.target.parentElement.children
+            var _c = _a.concat(_b);
+            console.log(_c)
 
             var isNested = getNestedList.find(nestedEl => nestedEl.classList.contains(
                 'custom-collapse-1') || nestedEl.classList.contains(
@@ -277,8 +300,6 @@ export function sidebar001({
 
         if (!activeSidebar.classList.contains('active')) {
             activeSidebar.classList.toggle('active');
-            // document.body.style.overflow = 'hidden';
-            // document.body.style.position = 'fixed';
 
             // below css is using for iOS scroll problem.
             document.body.setAttribute('style', 'position: relative; overflow: hidden; height: 100%; -webkit-overflow-scrolling: touch;');
