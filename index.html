@@ -280,7 +280,7 @@
     <!-- <script src="app.js"></script> -->
 
     <script type="module">
-        import { sidebar001 } from './plugins/sidenav.min.esm.js'
+        import { sidebar001 } from './plugins/sidenav.js'
 
         var passiveSupported = false;
         try {
@@ -295,7 +295,7 @@
 
 
         document.addEventListener("mousewheel", sidebar001({
-            type: 'accordion',
+            mode: 'slide',
             targetEl: '.side-custom-nav-list',
             duration: 350,
             iconDown: `

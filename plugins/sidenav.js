@@ -75,7 +75,9 @@ function nestedListChildEl(item, iconDown) {
 
             var iconText = '';
             const minifyIcon = minify_html(iconDown, iconText);
-            createIconSpan.innerHTML = `${minifyIcon}`
+
+            createIconSpan.innerHTML = minifyIcon
+
 
             var collapseBtn = item.children[0];
             collapseBtn.appendChild(createIconSpan);
@@ -88,7 +90,7 @@ export function sidebar001({
     targetEl: targetNavEl,
     iconDown: iconDown,
     duration: duration,
-    type: ModeType,
+    mode: ModeType,
     activeColor: activeColorEl,
 }) {
     var sidebarArray = Array.from(document.querySelectorAll('.custom-nav-item'));
@@ -133,10 +135,10 @@ export function sidebar001({
                 else return
 
                 condition2: if (!!nestedListEl) {
-                    console.log(4)
+                    // console.log(4)
 
                     if (isNested) {
-                        console.log(5)
+                        // console.log(5)
 
                         getNestedList[0].classList.toggle('bg-half-white')
                         rotationIcon.classList.toggle('rotation-icon');
@@ -147,7 +149,7 @@ export function sidebar001({
 
                     }
                 } else {
-                    console.log(6)
+                    // console.log(6)
 
                     getNestedList[0].classList.toggle('bg-half-white')
                     rotationIcon.classList.toggle('rotation-icon');
@@ -169,7 +171,7 @@ export function sidebar001({
                 else return
 
                 condition1: if (modeType === 'accordion') {
-                    console.log(1)
+                    // console.log(1)
                     var checkActiveList = Array.from(item.parentElement.children).find(
                         itemEl => {
                             var findActiveEl = itemEl.children;
@@ -179,9 +181,9 @@ export function sidebar001({
                         })
 
                     if (nestedListIsActive) {
-                        console.log(2)
+                        // console.log(2)
 
-                        console.log(nestedListIsActive);
+                        // console.log(nestedListIsActive);
                         isNested.classList.remove('active');
                         getNestedList[0].classList.remove('bg-half-white')
                         rotationIcon.classList.toggle('rotation-icon');
@@ -189,9 +191,9 @@ export function sidebar001({
                     }
 
                     condition4: if (checkActiveList !== undefined && !nestedListEl) {
-                        console.log(3)
+                        // console.log(3)
 
-                        console.log(checkActiveList.children[0])
+                        // console.log(checkActiveList.children[0])
                         checkActiveList.children[0].classList.remove('bg-half-white')
                         checkActiveList.children[0].children[1].classList.remove(
                             'rotation-icon')
@@ -207,10 +209,10 @@ export function sidebar001({
                 }
 
                 condition2: if (!!nestedListEl) {
-                    console.log(4)
+                    // console.log(4)
 
                     if (isNested) {
-                        console.log(5)
+                        // console.log(5)
 
                         getNestedList[0].classList.toggle('bg-half-white')
                         rotationIcon.classList.toggle('rotation-icon');
@@ -221,7 +223,7 @@ export function sidebar001({
 
                     }
                 } else {
-                    console.log(6)
+                    // console.log(6)
 
                     getNestedList[0].classList.toggle('bg-half-white')
                     rotationIcon.classList.toggle('rotation-icon');
@@ -241,7 +243,7 @@ export function sidebar001({
                 else return
 
                 condition2: if (!nestedListEl) {
-                    console.log(4)
+                    // console.log(4)
 
                     if (isNested) {
                         // console.log(isNested);
@@ -291,12 +293,12 @@ export function sidebar001({
                             if (!secondNestedTitle) return;
 
                             function goNextSecondSlide(getSlideModeSecondItem) {
-                                console.log(getSlideModeSecondItem);
-                                console.dir(getSlideModeSecondItem.parentElement);
+                                // console.log(getSlideModeSecondItem);
+                                // console.dir(getSlideModeSecondItem.parentElement);
 
                                 var cloneSecondNestedList = getSlideModeSecondItem.parentElement;
                                 var isBtnCollapse001 = [...cloneSecondNestedList.children].find(cloneItem => cloneItem.classList.contains('custom-collapse-2'))
-                                console.log(cloneSecondNestedList.closest('.custom-nav-item-1'))
+                                // console.log(cloneSecondNestedList.closest('.custom-nav-item-1'))
 
                                 function createNewSecondSlide() {
                                     isNested.closest(targetNavEl).style.overflow = 'hidden';
@@ -310,7 +312,7 @@ export function sidebar001({
                                     }, 50);
 
                                     var cloneFatherElement2 = getSlideModeSecondItem.parentElement.cloneNode(true);
-                                    console.log(cloneFatherElement2);
+                                    // console.log(cloneFatherElement2);
                                     isNested.closest(targetNavEl).appendChild(createSlideElement2)
                                     createUlEl2.appendChild(cloneFatherElement2)
                                     createSlideElement2.appendChild(createUlEl2)
@@ -318,11 +320,11 @@ export function sidebar001({
                                     rotationIcon.classList.toggle('rotation-icon');
 
                                     cloneFatherElement2.addEventListener('click', function (nestedEvent2) {
-                                        var isTopOfTitle2 = nestedEvent.target.classList.contains('btn-collapse-1');
-
-                                        var delSecondNestedSlide = nestedEvent2.target.closest('.nested-side-2')
+                                        var isTopOfTitle2 = nestedEvent2.target.classList.contains('btn-collapse-1');
+                                        // console.log(isTopOfTitle2);
 
                                         if (isTopOfTitle2) {
+                                            var delSecondNestedSlide = nestedEvent2.target.closest('.nested-side-2')
                                             delSecondNestedSlide.style.left = '50%';
                                             delSecondNestedSlide.style.transform = 'translateX(50%)';
 
@@ -334,7 +336,7 @@ export function sidebar001({
                                 }
 
                                 if (isBtnCollapse001) createNewSecondSlide()
-                                console.log(cloneSecondNestedList)
+                                // console.log(cloneSecondNestedList)
                             }
 
                             if (!secondNestedTitle) return
@@ -345,7 +347,7 @@ export function sidebar001({
                         })
                     }
                 } else {
-                    console.log(6)
+                    // console.log(6)
 
                     rotationIcon.classList.toggle('rotation-icon');
                 }
@@ -404,7 +406,7 @@ export function sidebar001({
 
             var isHaveShadowDom = convertArray.find(item => item.localName === 'shadow-card')
 
-            console.log(isHaveShadowDom)
+            // console.log(isHaveShadowDom)
             if (isHaveShadowDom) {
                 activeSidebar.classList.remove('active')
                 isHaveShadowDom.remove();
