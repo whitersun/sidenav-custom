@@ -12,8 +12,6 @@
 </head>
 
 <body>
-    <!-- <shadow-card></shadow-card> -->
-
     <header>
         <section class="sidebar001">
             <div class="side-custom-nav-list">
@@ -198,48 +196,9 @@
                 </button>
             </div>
         </section>
-
-        <section class="navbar002">
-            <div class="the-most-top-nav-bg"></div>
-        </section>
     </header>
 
     <div class="container">
-        <user-card name="Sunwoo Jun"
-            avatar="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">whitersun@gmail.com</div>
-            <div slot="phone">555-555-5555</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
 
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi asperiores, vel adipisci magnam alias
@@ -321,12 +280,23 @@
     <!-- <script src="app.js"></script> -->
 
     <script type="module">
-        import { sidebar001 } from './plugins/sidenav.js'
+        import { sidebar001 } from './plugins/sidenav.min.esm.js'
 
-        console.dir(document.body.offsetHeight)
-        sidebar001({
+        var passiveSupported = false;
+        try {
+            var options = Object.defineProperty({}, "passive", {
+                get: function() {
+                    passiveSupported = true;
+                }
+            });
+            
+            window.addEventListener("test", null, options);
+        } catch(err) {}
+
+
+        document.addEventListener("mousewheel", sidebar001({
+            type: 'accordion',
             targetEl: '.side-custom-nav-list',
-            accordion: true,
             duration: 350,
             iconDown: `
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
@@ -334,7 +304,8 @@
                 </svg>
             `,
             activeColor: "#A4363A"
-        })
+        }) ? { passive: true } : false)
+
     </script>
 </body>
 

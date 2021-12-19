@@ -25,6 +25,10 @@
     rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/styles/style.min.css">
+
+    <style>
+        .forSafari::-webkit-scrollbar { width: 0 !important }
+    </style>
 </head>
 
 <body>
@@ -221,42 +225,6 @@
     </header>
 
     <div class="container">
-        <user-card name="Sunwoo Jun"
-            avatar="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">whitersun@gmail.com</div>
-            <div slot="phone">555-555-5555</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-        <user-card name="Sunwoo Tyanna"
-            avatar="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
-            <div slot="email">tyanna@gmail.com</div>
-            <div slot="phone">777-777-7777</div>
-        </user-card>
-
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi asperiores, vel adipisci magnam alias
             repellendus sunt quam natus voluptates cum ut vitae. Dolorem tenetur non tempore mollitia pariatur odio
@@ -342,7 +310,6 @@
     <script type="module">
         import { sidebar001 } from './plugins/sidenav.js'
 
-        console.dir(document.body.offsetHeight)
         sidebar001({
             targetEl: '.side-custom-nav-list',
             accordion: true,
