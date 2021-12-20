@@ -28,6 +28,7 @@ body {
     .side-custom-nav-list {
         position: fixed;
         display: block;
+        top: 0;
         width: 240px;
         height: 100%;
 
@@ -148,6 +149,10 @@ body {
                             font-size: 20px;
                             line-height: 44px;
                             font-weight: 400;
+                            box-sizing: border-box;
+                            margin: 0;
+                            box-shadow: none;
+                            padding-right: 0;
 
                             span {
                                 pointer-events: none;
@@ -255,6 +260,7 @@ body {
                 flex-direction: column;
                 list-style: none;
                 padding-left: 0;
+                margin-top: 0;
             }
 
             .custom-nav-item {
@@ -356,6 +362,7 @@ body {
                 flex-direction: column;
                 list-style: none;
                 padding-left: 0;
+                margin-top: 0;
             }
 
             .custom-nav-item-1 {
@@ -611,7 +618,7 @@ body {
     display: block;
     width: 100%;
     background-color: #1616167a;
-    position: absolute;
+    position: fixed;
     top: 0;
     overflow: hidden;
     z-index: 100;

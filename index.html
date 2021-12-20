@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./assets/styles/style.min.css">
 </head>
 
@@ -96,6 +96,18 @@
                                         <a href="#activity" class="btn-collapse-1">
                                             <span>活動行程</span>
                                         </a>
+
+                                        <ul class="custom-collapse-2">
+                                            <li class="custom-nav-item-2">
+                                                <a href="#intro002" class="btn-collapse-2">三太子-太子爺公</a>
+                                            </li>
+                                            <li class="custom-nav-item-2">
+                                                <a href="#intro003" class="btn-collapse-2">南無釋迦牟尼佛祖</a>
+                                            </li>
+                                            <li class="custom-nav-item-2">
+                                                <a href="#intro004" class="btn-collapse-2">玉皇大帝</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li class="custom-nav-item-1">
                                         <a href="#" class="btn-collapse-1">
@@ -295,7 +307,7 @@
 
 
         document.addEventListener("mousewheel", sidebar001({
-            mode: 'slide',
+            mode: 'collapse',
             targetEl: '.side-custom-nav-list',
             duration: 350,
             iconDown: `
