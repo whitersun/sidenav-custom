@@ -128,7 +128,7 @@ export function sidebar001({
 
                 // above just using for accordion
                 var nestedListEl = event.target.classList.contains('btn-collapse-1');
-                if (isNested) nestedListIsActive = isNested.classList.contains('active')
+                if (isNested) isNested.classList.contains('active')
                 else return
 
                 condition2: if (!!nestedListEl) {
@@ -156,7 +156,6 @@ export function sidebar001({
                     getNestedList[0].style.setProperty('--side-active-click', activeColorEl)
                 }
             }
-
 
             function runAccordion() {
                 var rotationIcon = getNestedList[0].children[1];
